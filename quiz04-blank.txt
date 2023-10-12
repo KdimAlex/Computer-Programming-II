@@ -1,0 +1,126 @@
+0,1. theArray is an array of DirectoryEntry references, sorted by name, with size
+   the number which are currently in use.  DirectoryEntry has a getName method.
+   Implement find which returns the index of the entry which has that name, or if it
+   is not there, it returns the index where it should be inserted.  Your
+   implementation should run in O(log n) time for n=size.
+
+int find (String name) {
+
+	int low =                int high = 
+
+	while (                                ) {
+
+		int middle =
+
+		if (                                                              )
+
+
+		else
+
+
+	}
+
+
+	return
+}
+
+2. Starting with an empty stack s, perform s.push(3), s.push(1), s.push(4),
+   s.push(1), s.pop(), s.push(5), s.pop().  What will s.peek() return?
+
+
+
+3,4. Write code to print out the contents of Stack<String> s from bottom to top and
+   leave s unchanged afterwards.  Use System.out.println to print each element.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5. ArrayStack is implemented using an array E[] theData and an int size, the number
+   of elements in the stack, with the BOTTOM of the stack at theData[0], implement
+   the push method.  You can call reallocate() but you do not have to implement it.
+
+	E push (E item) {
+
+
+
+
+
+
+
+
+
+
+
+6. Implement ArrayStack pop.  Don't forget to throw an EmptyStackException.
+   You do not have to implement empty().
+
+	E pop () {
+
+
+
+
+
+
+
+
+
+
+
+
+7. Implement push for linked stack with Node variable top pointing to the top Node
+   in the stack.
+
+	class Node {
+		E data;
+		Node next;
+		Node (E data) { this.data = data; this.next = null; }
+	}
+
+	E push (E item) {
+
+
+
+
+
+
+
+
+
+
+
+
+8. ListStack stores the stack in a List<E> theList with the top of the stack as the
+   last element of theList.  Implement peek using the size() and get(index) methods
+   of List<E>.  You can assume empty() has already been implemented.
+
+	E peek () {
+
+
+
+
+
+
+
+
+
+
+
+9. If the numbers stack and operators stack below have the top on the right, show
+   them after we pop two numbers and one operator, execute the operator on the
+   numbers, and push the result on the numbers stack.  Numbers were pushed in order
+   they appear in the expression.
+
+	numbers stack:		0 1 2 3
+	operators stack:	+ * ^

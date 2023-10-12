@@ -1,0 +1,4 @@
+SCORE: 25
+
+two calls to addOrChangeEntry (Why?)  -5
+changed not done

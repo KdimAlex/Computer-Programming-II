@@ -1,0 +1,130 @@
+0. How many cycles per second in a GHz (giga Hertz)?
+
+	1000000000
+        a billion
+
+	10 to the 9th power
+
+
+
+1. Which power of 2 is closest to a million?  What is the nearest integer to
+   log 1000000?
+      2
+
+	2 to the 20
+        20
+
+
+
+
+2. What is the minimum time to the nearest second that a computer with 16 GB RAM
+   and a quad (4) core 2 GHz processor can locate all bytes in its RAM which are
+   set to 'V'?
+
+	4 (cores) times 2 billion per second = 8 billion per second
+        so for 16 billion
+        2 seconds
+
+
+
+
+3. Give at least two reasons why it is a harder task for Google to find the best
+   ten web pages with Victor Milenkovic on them (compared to #2).
+
+	more web pages than bytes (57 billion vs 16 billion)
+
+        speed of light, can't get a web page in a nanosecond!
+
+        web pages are bigger than one byte:  more like a kilobyte
+
+        Looking for a name that's more than 10 bytes long. More characters than 'V'.
+
+        orders pages by relevance (search rank)
+
+        
+
+
+4. If a single weighing can determine that a pile of coins contains one real coin,
+   how many weighings does it take to locate the one real coin in a pile of 1000?
+
+	10
+        500, 250, 125, 64, 32, 16, 8, 4, 2, 1
+
+        could be 11
+        maaaybe could be 9
+
+
+
+5. Same question, pile of n?
+
+	log to the base 2 of n
+
+        log n
+           2
+
+
+public class Computer {
+    private int ramSize;	// gibibytes
+    protected double speed;	// gigaHertz
+
+    public Computer (int ram, double speed) {
+	ramSize = ram;
+        this.speed = speed;
+    }
+    public int getRamSize () { return ramSize; }
+    public int getSpeed () { return speed; }
+    public double getPower () { return ramSize * speed; }
+}
+
+public class Laptop extends Computer {
+    private double weight;
+    
+    public Laptop (int ram, double speed, double weight) {
+	super(ram, speed);
+        this.weight = weight;
+    }
+    public double getWeight () { return weight; }
+    public double getPower() { return getRamSize() * speed / 2; }
+}
+-------------------------------------------------------------------------
+
+6. Why doesn't Laptop.getPower compile and what are two ways to fix it?
+
+	ramSize and speed are private in Computer
+
+        1. make it protected in Computer
+
+        2. call the public accessor method
+
+	(Solution shown above.)
+
+
+
+
+After you fix Laptop.getPower, what will the following code (#7-#9) do?
+Answer compiler error, runtime exception, or what it prints out.
+
+7. 	Computer c = new Laptop(8, 2.5, 7.5);
+	System.out.println(c.getWeight());
+
+	
+        Compiler error.  getWeight is not a method of Computer
+        so it can't be called for a Computer variable.
+
+
+8. 	Computer c = new Laptop(8, 2.5, 7.5);
+	System.out.println(c.getPower());
+
+	prints out 8 * 2.5 / 2
+        
+        10
+
+
+9. 	Computer c = new Computer(16, 3.0);
+	Laptop l = (Laptop) c;
+	System.out.println(l.getPower());
+
+
+        Runtime error.
+        (Click the green "play" button.)
+

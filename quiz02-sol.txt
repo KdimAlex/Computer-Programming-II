@@ -1,0 +1,120 @@
+0. Assuming you use binary search, what is the largest number of pages you have
+   to look at in order to look up a word in an alphabetical dictionary with
+   1,000 pages?  With 1,000,000 pages?  With 1,000,000,000 pages?
+
+	10, 20, 30
+
+
+
+
+
+1. How many numbers can YOUR computer (the one you use to do your homework) add
+   up in one millisecond (1/1000 second)?  If you don't remember the exact speed
+   of your computer, take a guess.
+
+	It's at least a billion per second.
+
+        So at least a million.
+
+
+
+
+2. Using ui.getInfo(prompt) and ui.sendMessage(message), write code that gets a name
+   from the user and sends a message "Hello [name]" (say hello to the name) or
+   "Blank names are not allowed" if the user gives you a blank name or does nothing
+   if the user clicks CANCEL.
+
+	String name = ui.getInfo("Enter name");
+        if (name != null) {
+          if (name.length() == 0 || name.equals(""))
+             ui.sendMessage("Blank names not allowed.");
+          else
+             ui.sendMessage("Hello " + name);
+        }
+
+	name = ui.getInfo("Enter name");
+        if (name == null)
+           break;
+        if (name.length() == 0 || name.equals("")) {
+             ui.sendMessage("Blank names not allowed.");
+             break;
+        }
+        ui.sendMessage("Hello " + name);
+        break;
+
+
+
+
+
+3. If a class implements an interface, does it need to have a public method with
+   the same name and parameters for EVERY method in the interface?  Can the
+   class have methods OTHER than those in the interface it implements?  (Hint:
+   ArrayBasedPD.)
+
+	yes
+        yes
+
+
+
+
+4. If name1="Victor and name2="Vincent", then name1.compareTo(name2) is -11
+   because 'c' comes 11 letters before 'n'.  What is it if name1="Jean" and
+   name2="Jane"?
+
+	4
+
+
+
+
+You are testing your homework, but you have not implemented SortedPD find yet, so
+the directory will not yet be in alphabetical order.  You look at the contents of
+theDirectory and size using the debugger.  What you see is below.  Show the result
+of a single operation described in 5, 6, 7, or 8.  Each question is INDEPENDENT and
+refers to the ORIGINAL theDirectory and size below.  Each time pretend that is the
+ONLY OPERATION you do.
+
+theDirectory:  Jay 1, Bob 8, Ian 2, Ann 3, Eve 6, null, null
+size:  5
+
+5. Result of ArrayBasedPD.remove(1).  (Remember, [1] is Bob!!)
+
+theDirectory:  Jay 1, Eve 6, Ian 2, Ann 3, Eve 6, null, null
+
+
+
+size: 4
+
+
+6. Result of SortedPD.remove(1).
+
+theDirectory:  Jay 1, Ian 2, Ann 3, Eve 6, Eve 6, null, null
+
+               Jay 1, Ian 2, Ann 3, Eve 6, null, null, null
+
+size: 4
+
+
+7. Result of ArrayBasedPD.add(1, new DirectoryEntry("Zoe", 7)).
+   (Only change two locations!)
+
+theDirectory:  Jay 1, Zoe 7, Ian 2, Ann 3, Eve 6, Bob 8, null
+
+
+
+size: 6
+
+
+8. Result of SortedPD.add(1, new DirectoryEntry("Zoe", 7)).
+
+theDirectory:  Jay 1, Zoe 7, Bob 8, Ian 2, Ann 3, Eve 6, null
+
+
+
+size: 6
+
+
+9. Results of ArrayBasedPD.found(2, "Hal") and SortedPD.found(2, "Hal").
+   True or false?  Two answers.
+
+	true
+        false

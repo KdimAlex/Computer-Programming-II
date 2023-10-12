@@ -1,0 +1,162 @@
+0,1. theArray is an array of DirectoryEntry references, sorted by name, with size
+   the number which are currently in use.  DirectoryEntry has a getName method.
+   Implement find which returns the index of the entry which has that name, or if it
+   is not there, it returns the index where it should be inserted.  Your
+   implementation should run in O(log n) time for n=size.
+
+int find (String name) {
+
+	int low =  0;              int high = size;
+
+	while ( low < high                               ) {
+
+		int middle =  (low + high)/2;
+
+		if ( theArray[middle].getName().compareTo(name) < 0              )
+		if ( name.compareTo(theArray[middle].getName()) > 0              )
+
+			low = middle + 1;
+		else
+		        high = middle;
+
+	}
+
+
+	return low; // or high
+}
+
+2. Starting with an empty stack s, perform s.push(3), s.push(1), s.push(4),
+   s.push(1), s.pop(), s.push(5), s.pop().  What will s.peek() return?
+
+	4
+
+3,4. Write code to print out the contents of Stack<String> s from bottom to top and
+   leave s unchanged afterwards.  Use System.out.println to print each element.
+
+	Stack<String> helper = new Stack<String>();
+
+        while (!s.empty())
+            helper.push(s.pop());
+
+        while (!helper.empty())
+            System.out.println(s.push(helper.pop()));
+
+
+
+
+
+
+
+
+5. ArrayStack is implemented using an array E[] theData and an int size, the number
+   of elements in the stack, with the BOTTOM of the stack at theData[0], implement
+   the push method.  You can call reallocate() but you do not have to implement it.
+
+	E push (E item) {
+
+		if (size == theData.length)
+                   reallocate();
+
+                return theData[size++] = item;
+
+                theData[size++] = item;
+                return item;
+
+                theData[size] = item;
+                size++;
+                return item;
+        }
+
+
+
+
+
+
+6. Implement ArrayStack pop.  Don't forget to throw an EmptyStackException.
+   You do not have to implement empty().
+
+	E pop () {
+
+		if (empty())
+                   throw new EmptyStackException();
+
+                return theData[--size];
+
+                size--;
+                return theData[size];
+
+                E popObj = theData[size-1];
+                size--;
+                return popObj;
+         }
+
+
+
+
+
+
+
+
+
+7. Implement push for linked stack with Node variable top pointing to the top Node
+   in the stack.
+
+	class Node {
+		E data;
+		Node next;
+		Node (E data) { this.data = data; this.next = null; }
+	}
+
+	E push (E item) {
+
+          Node newNode = new Node(item);
+          newNode.next = top;
+          top = newNode;
+          return item;
+        }
+
+
+
+
+
+
+
+
+
+
+8. ListStack stores the stack in a List<E> theList with the top of the stack as the
+   last element of theList.  Implement peek using the size() and get(index) methods
+   of List<E>.  You can assume empty() has already been implemented.
+
+	E peek () {
+
+            if (empty())
+               throw new EmptyStackException();
+
+            return theList.get(theList.size() - 1);
+        }
+
+
+
+
+
+
+
+
+9. If the numbers stack and operators stack below have the top on the right, show
+   them after we pop two numbers and one operator, execute the operator on the
+   numbers, and push the result on the numbers stack.  Numbers were pushed in order
+   they appear in the expression.
+
+	numbers stack:		0 1 2 3
+	operators stack:	+ * ^
+
+	
+        2 ^ 3
+
+        8
+
+	numbers stack:		0 1 8
+	operators stack:	+ *
+
+

@@ -1,0 +1,2 @@
+Estimate for ConstantFib should always be previous runtime.  -10
+
